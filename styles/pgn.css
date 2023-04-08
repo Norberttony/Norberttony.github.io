@@ -1,0 +1,58 @@
+#pgnText {
+    resize: vertical;
+    height: 140px;
+}
+
+#pgn {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 15% 42.5% 42.5%;
+    grid-template-rows: repeat(30, min-content);
+    color: #EEE;
+    min-height: 100px;
+    max-height: 150px;
+    overflow-y: scroll;
+}
+
+#pgn > *, #extra > * {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.pgn_san, .pgn_counter {
+    padding: 2px 8px;
+    font-size: 20px;
+}
+
+.pgn_san {
+    background-color: #111;
+    cursor: pointer;
+}
+
+.pgn_counter {
+    text-align: right;
+}
+
+.pgn_selected, .pgn_selected:hover, #pgn_control > *:hover {
+    background-color: #444;
+}
+
+.pgn_san:hover, #pgn_control > *:active {
+    background-color: #222;
+}
+
+#pgn_control {
+    display: flex;
+    box-shadow: black 0px 1px 5px;
+    z-index: 1;
+}
+
+#pgn_control > * {
+    flex: 1;
+    border: 0px;
+    background-color: #111;
+    color: white;
+    padding: 6px;
+    font-size: large;
+    cursor: pointer;
+}

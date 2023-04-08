@@ -1,0 +1,19 @@
+#panel {
+    margin: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: panel;
+}
+
+#extra {
+    margin-top: 15px;
+    grid-area: extra;
+}
+
+#fenText, #pgnText {
+    background-color: black;
+    color: #EEE;
+    border: 1px solid gray;
+    width: 100%;
+}

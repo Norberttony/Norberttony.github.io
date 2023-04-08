@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <meta name = "description" content = "Invite a friend to play a game of Bess!">
+
+        <title>P2P Bess</title>
+
+        <link as="font" href="fonts/chessglyph.woff2" rel="preload" type="font/woff2">
+        <link as="font" href="fonts/chessglyph.woff" rel="preload" type="font/woff">
+        
+        <link href = "styles/invite.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/panel.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/pgn.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/peer-info.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/blocks.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/coords.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/game.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/game-elems.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/blocks.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/highlights.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/style.css" rel = "stylesheet" type = "text/css"/>
+
+        <!-- Style styles. yup. styles that style styles. -->
+        <link href = "styles/board-styles.css" rel = "stylesheet" type = "text/css"/>
+        <link href = "styles/piece-styles.css" rel = "stylesheet" type = "text/css"/>
+        
+        <!-- game scripts -->
+        <script src = "scripts/game/pre-game.js"></script>
+        <script src = "scripts/game/piece.js"></script>
+        <script src = "scripts/game/game.js"></script>
+
+        <!-- graphics scripts -->
+        <script defer src = "scripts/graphics/board.js"></script>
+        <script defer src = "scripts/graphics/pool.js"></script>
+        <script defer src = "scripts/graphics/graphics.js"></script>
+        <script defer src = "scripts/graphics/dialog.js"></script>
+
+        <!-- utils scripts -->
+        <script defer src = "scripts/utils/observer.js"></script>
+        <script defer src = "scripts/utils/logger.js"></script>
+
+        <!-- pgn scripts -->
+        <script defer src = "scripts/pgn-view/pgnviewer.js"></script>
+        <script defer src = "scripts/pgn-view/pgntree.js"></script>
+    </head>
+    <body>
+
+        <div id = "container" class = "game_container_container blue cburnett">
+            <div id = "black_player" class = "player">
+                <span class = "connection"></span>
+                <span class = "name">Anonymous</span>
+            </div>
+            <div id = "white_player" class = "player">
+                <span class = "connection"></span>
+                <span class = "name">Anonymous</span>
+            </div>
+            <div id = "game_container" class = "game_container">
+                <div id = "game" class = "game">
+
+                </div>
+                <div id = "ranks"></div>
+                <div id = "files"></div>
+                <div class = "promoting"></div>
+            </div>
+            <div class = "blocking_container">
+                <div id = "blocking" class = "blockings">
+                    <button id = "blocking_undo" onclick = "undoTestMove();"></button>
+                </div>
+            </div>
+            <div id = "panel">
+                <button id = "panel_send-invite" onclick = "generateInvite({color: Math.random() > 0.5});">Invite someone to play!</button>
+                <button onclick = "flipBoard();">Flip Board</button>
+                <div id = "pgn_control">
+                    <button onclick = "PGNMoveFirst();">&lt;&lt;</button>
+                    <button onclick = "PGNMoveBack();">&lt;</button>
+                    <button onclick = "PGNMoveForward();">&gt;</button>
+                    <button onclick = "PGNMoveLast();">&gt;&gt;</button>
+                </div>
+                <div id = "pgn"></div>
+            </div>
+            <div id = "extra">
+                <textarea id = "pgnText" onfocus = "this.select();"></textarea>
+                <button onclick = "setPGN();">Set PGN</button>
+                <input id = "fenText" onfocus = "this.select();">
+                <button id = "panel_set-fenb" onclick = "setFENB();">Set FENB</button>
+            </div>
+
+            <div id = "dragging"></div>
+        </div>
+
+        <div id = "dialog-box-container">
+            <div id = "dialog-box">
+                <p id = "dialog_title">Connecting to user . . .</p>
+                <p id = "dialog_desc">This might take some time...</p>
+            </div>
+            <div id = "result-box">
+                <p id = "result-box_result">Game ended in a draw by agreement</p>
+                <button>Rematch?</button><button>View Game</button>
+            </div>
+        </div>
+
+        <div id = "invite-popup-container">
+            <!-- Currently hidden so that I just have to do a basic proof of concept here...
+            <div id = "create-game-popup">
+                <h1>Create a game</h1>
+                <form id = "create-game-form">
+                    <div class = "input-pair">
+                        <label for = "color">You play as:</label>
+                        <select name = "color">
+                            <option value = 0>Random</option>
+                            <option value = 1>White</option>
+                            <option value = -1>Black</option>
+                        </select>
+                    </div>
+                    
+                    <div class = "input-pair">
+                        <label for = "fen">Insert FEN:</label>
+                        <input id = "create-game-fen" name = "fen">
+                    </div>
+
+                    <div class = "game_container">
+                        <div class = "game">
+
+                        </div>
+                    </div>
+                    
+                    <input style = "width: 100%;" type = "submit" value = "Enter">
+                </form>
+            </div>-->
+            <div id = "invite-popup">
+                <p>Send this link to a friend to play a game against them!</p>
+                <input id = "peer-id" readonly onfocus = "this.select();">
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,16 @@
+/* handles displaying proper images for pieces based on the indicated styles */
+
+/* unfortunately, this app uses tiling, but some of the images are not aligned that way. */
+/* for this reason, be sure to make modifications to /public/scripts/board.js */
+
+/* to-do: absolutely should have the piece background position controlled by CSS instead of JS. */
+
+/* CBURNETT */
+.game_container_container.cburnett {
+    --pieces-image-url: url(../images/pieces/cburnett.png);
+}
+
+/* MERIDA */
+.game_container_container.merida {
+    --pieces-image-url: url(../images/pieces/merida.png);
+}

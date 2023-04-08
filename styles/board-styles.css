@@ -1,0 +1,34 @@
+/*   handles display board images and board mat images,   */
+/* and other styling related to the coloring of the board */
+
+/*********** BLUE ************/
+.game_container_container.blue {
+    --primary-color: rgb(47 88 139);
+    --secondary-color: rgb(243 243 243);
+    --highlight-color: #262421;
+    --square-highlight-color: rgb(0, 165, 255);
+}
+
+.game_container_container.blue .game {
+    background-image: url(../images/boards/board_blue.png);
+}
+
+.game_container_container.blue .blockings {
+    background-image: url(../images/blocking-mats/blocking_mat_blue.png);
+}
+
+/*********** MAROON ************/
+.game_container_container.maroon .game_container {
+    --primary-color: rgb(158 70 42);
+    --secondary-color: rgb(225 201 190);
+    --highlight-color: black;
+    --square-highlight-color: rgb(255, 238, 0, 0.7);
+}
+
+.game_container_container.maroon .game {
+    background-image: url(../images/boards/board_maroon.png);
+}
+
+.game_container_container.maroon .blockings {
+    background-image: url(../images/blocking-mats/blocking_mat_maroon.png);
+}
