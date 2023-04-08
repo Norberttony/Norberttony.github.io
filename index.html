@@ -80,58 +80,11 @@
                 <div id = "pgn"></div>
             </div>
             <div id = "extra">
-                <textarea id = "pgnText" onfocus = "this.select();"></textarea>
-                <button onclick = "setPGN();">Set PGN</button>
-                <input id = "fenText" onfocus = "this.select();">
-                <button id = "panel_set-fenb" onclick = "setFENB();">Set FENB</button>
+                <textarea id = "pgnText" onfocus = "this.select();" readonly></textarea>
+                <input id = "fenText" onfocus = "this.select();" readonly>
             </div>
 
             <div id = "dragging"></div>
-        </div>
-
-        <div id = "dialog-box-container">
-            <div id = "dialog-box">
-                <p id = "dialog_title">Connecting to user . . .</p>
-                <p id = "dialog_desc">This might take some time...</p>
-            </div>
-            <div id = "result-box">
-                <p id = "result-box_result">Game ended in a draw by agreement</p>
-                <button>Rematch?</button><button>View Game</button>
-            </div>
-        </div>
-
-        <div id = "invite-popup-container">
-            <!-- Currently hidden so that I just have to do a basic proof of concept here...
-            <div id = "create-game-popup">
-                <h1>Create a game</h1>
-                <form id = "create-game-form">
-                    <div class = "input-pair">
-                        <label for = "color">You play as:</label>
-                        <select name = "color">
-                            <option value = 0>Random</option>
-                            <option value = 1>White</option>
-                            <option value = -1>Black</option>
-                        </select>
-                    </div>
-                    
-                    <div class = "input-pair">
-                        <label for = "fen">Insert FEN:</label>
-                        <input id = "create-game-fen" name = "fen">
-                    </div>
-
-                    <div class = "game_container">
-                        <div class = "game">
-
-                        </div>
-                    </div>
-                    
-                    <input style = "width: 100%;" type = "submit" value = "Enter">
-                </form>
-            </div>-->
-            <div id = "invite-popup">
-                <p>Send this link to a friend to play a game against them!</p>
-                <input id = "peer-id" readonly onfocus = "this.select();">
-            </div>
         </div>
 
     </body>
