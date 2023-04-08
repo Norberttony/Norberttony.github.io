@@ -4,7 +4,7 @@
         <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
         <meta name = "description" content = "Invite a friend to play a game of Bess!">
 
-        <title>P2P Bess</title>
+        <title>Local Bess</title>
 
         <link as="font" href="fonts/chessglyph.woff2" rel="preload" type="font/woff2">
         <link as="font" href="fonts/chessglyph.woff" rel="preload" type="font/woff">
@@ -69,7 +69,7 @@
                 </div>
             </div>
             <div id = "panel">
-                <button id = "panel_send-invite" onclick = "generateInvite({color: Math.random() > 0.5});">Invite someone to play!</button>
+                <button id = "panel_undo" onclick = "undoMove();">Undo Move</button>
                 <button onclick = "flipBoard();">Flip Board</button>
                 <div id = "pgn_control">
                     <button onclick = "PGNMoveFirst();">&lt;&lt;</button>

@@ -55,6 +55,8 @@ function blockedClick(event){
     gameState.graphicsMakeMove(testMove);
     testMove = undefined;
 
+    document.getElementById("panel_undo").disabled = false;
+
     hideBlocks();
 
     // updates information of blocked piece

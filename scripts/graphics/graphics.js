@@ -78,6 +78,7 @@ function draggingMouseUp(event){
     // player let go at a highlight, indicating they're moving the piece there.
     if (highlight.classList.contains("highlight")){
         testMove = currentMoves[parseInt(highlight.id.replace("highlight_", ""))];
+        document.getElementById("panel_undo").disabled = true;
 
         // wait, this piece is promoting. let's ask for more user input
         if (testMove.promotion){
@@ -186,6 +187,7 @@ function undoTestMove(){
         testMove = undefined;
         hideBlocks();
         displayBoard(gameState);
+        document.getElementById("panel_undo").disabled = false;
     }
 }
 
@@ -256,4 +258,20 @@ for (let i = 0; i < buttons.length; i++){
     buttons[i].onmousedown = (event) => {
         event.preventDefault();
     }
+}
+
+function undoMove(){
+    if (madeMoves.length < 1) return;
+
+    let pgn = pgnText.value.split(" ");
+    gameState.loadFENB(StartingFENB);
+    PGNViewerObj.clear();
+
+    let newPGN = "";
+    for (let i = 0; i < pgn.length -2; i++){
+        newPGN += pgn[i] +" ";
+    }
+    gameState.loadPGN(newPGN);
+	madeMoves.splice(madeMoves.length -1, 1);
+	displayBoard(gameState);
 }
