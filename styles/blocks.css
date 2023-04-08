@@ -96,7 +96,7 @@
     font-display: block;
     font-family: Chess V3;
     font-weight: 400;
-    src: url(fonts/chessglyph.woff2) format('woff2'), url(fonts/chessglyph.woff) format("woff");
+    src: url(../fonts/chessglyph.woff2) format('woff2'), url(../fonts/chessglyph.woff) format("woff");
 }
 
 #blocking_undo::before {
